@@ -35,6 +35,8 @@ public class DeviceDetailsFragment extends Fragment implements WifiP2pManager.Co
     private WifiP2pDevice selectedDevice;
     private WifiP2pInfo info;
     private WifiP2pGroup group;
+    public static TextView statusText;
+    public static TextView msgText;
     public static String macAdd;
 
     static ProgressDialog progressDialog = null;
@@ -56,6 +58,9 @@ public class DeviceDetailsFragment extends Fragment implements WifiP2pManager.Co
     {
         // Inflate the layout for this fragment
         mContentView = inflater.inflate(R.layout.fragment_device_details, container, false);
+
+        statusText = (TextView) mContentView.findViewById(R.id.status_text);
+        msgText = (TextView) mContentView.findViewById(R.id.message_text);
 
         /*if(!DevicesActivity.isClient)
         {
@@ -118,6 +123,9 @@ public class DeviceDetailsFragment extends Fragment implements WifiP2pManager.Co
 
             }
         });
+
+        if(!DevicesActivity.isClient)
+            mContentView.findViewById(R.id.btn_connect).setVisibility(View.VISIBLE);
 
         return mContentView;
     }

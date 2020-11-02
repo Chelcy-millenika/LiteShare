@@ -24,10 +24,13 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.cnnfe.liteshare.R;
 
+import java.text.BreakIterator;
+
 //A fragment that manages a particular peer and allows interaction with device i.e. setting up network connection and transferring data.
 
 public class DeviceDetailsFragment extends Fragment implements WifiP2pManager.ConnectionInfoListener, WifiP2pManager.GroupInfoListener{
 
+    public static BreakIterator statusText;
     private View mContentView = null;
     private WifiP2pDevice selectedDevice;
     private WifiP2pInfo info;
